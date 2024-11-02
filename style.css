@@ -672,3 +672,14 @@ body.dark-mode #single-blog button {
         font-size: 12px;
     }
 }
+
+a {
+    color: #133E87; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+body.dark-mode a {
+    color: #B9E5E8; 
+    text-decoration: none;
+}
