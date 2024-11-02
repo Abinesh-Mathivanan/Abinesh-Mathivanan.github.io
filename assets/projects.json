@@ -1,0 +1,40 @@
+{
+    "projects": [
+      {
+        "title": "Siphus Cosmo-classifier",
+        "technologies": ["Python", "Julia", "Keras", "Tensorflow", "MaterialUI", "Flask", "MySQL", "MongoDB"],
+        "description": [
+          "Built a dataset of 70,000 samples using ReACT cosmo software on 5 cosmology models, trained with 250k parameters.",
+          "Deployed using Flask and integrated with MySQL, later transitioned to MongoDB, resulting in a 20% efficiency gain."
+        ]
+      },
+      {
+        "title": "Dankdate - LLM based networking",
+        "technologies": ["Gemini LLM", "Python", "LightRAG", "Keras", "Next.js", "Django", "Redis", "ChromaDB", "MongoDB"],
+        "description": [
+          "Pre-trained GPT models with 700k parameters, trained using cloud GPUs for 48 hours.",
+          "Deployed backend with Django and frontend using Next.js for fast builds; utilized Redis for cache retrieval.",
+          "Implemented Firebase for user authentication and integrated MongoDB for data storage."
+        ]
+      },
+      {
+        "title": "in-love.js - JavaScript library",
+        "technologies": ["Javascript", "Typescript", "Node.js", "npm", "Git", "Bootstrap", "Vue.js"],
+        "description": [
+          "Developed an open-source JavaScript library for proposal websites using Babel, Webpack, and Puppeteer.",
+          "Integrated testing with Mocha, Jest, and Chai for real-time testing across web platforms.",
+          "Published on npm with over 100 downloads in the first week."
+        ]
+      },
+      {
+        "title": "jaR - programming language",
+        "technologies": ["C", "C++", "LLVM", "MLIR", "ANTLR", "Rust", "OpenCL", "ASM X86", "GDB"],
+        "description": [
+          "Core concepts and runtime libraries are built using C and C++. Syntax is inspired by Cython.",
+          "Implemented ANTLR for lexical components, and LLVM IR is used for the intermediate representation of jaR code.",
+          "Integrated a transpilation language to OpenCL C using Rust for cross-platform compatibility."
+        ]
+      }
+    ]
+  }
+  

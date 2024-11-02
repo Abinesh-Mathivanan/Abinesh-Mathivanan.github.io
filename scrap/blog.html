@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntax Highlighting Theme Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* General styling for layout */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        /* Styling for code blocks */
+        .code-container {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        pre {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Button styling */
+        .button-container {
+            margin-bottom: 20px;
+        }
+
+        .button-container button {
+            padding: 8px 12px;
+            margin-right: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .button-container button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Syntax Highlighting Theme Test</h1>
+
+    <div class="button-container">
+        <button onclick="setTheme('dark')">Dark Theme</button>
+        <button onclick="setTheme('light')">Light Theme</button>
+    </div>
+
+    <div id="content">
+        <pre><code class="javascript">
+// Sample JavaScript code block
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+greet("World");
+        </code></pre>
+        
+        <pre><code class="python">
+# Sample Python code block
+def greet(name):
+    print("Hello, " + name + "!")
+
+greet("World")
+        </code></pre>
+    </div>
+
+    <script>
+        // Function to set theme based on mode
+        function setTheme(mode) {
+            // Remove any existing theme link to reset styles
+            const existingThemeLink = document.getElementById('highlight-theme');
+            if (existingThemeLink) {
+                existingThemeLink.remove();
+            }
+
+            // Create a new theme link
+            const themeLink = document.createElement('link');
+            themeLink.id = 'highlight-theme';
+            themeLink.rel = 'stylesheet';
+
+            // Set the theme based on the mode parameter
+            if (mode === 'dark') {
+                themeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css';
+            } else {
+                themeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css';
+            }
+
+            // Append the new theme link to the document head
+            document.head.appendChild(themeLink);
+
+            // Re-highlight all code blocks with the new theme
+            document.querySelectorAll('pre code').forEach(block => {
+                hljs.highlightElement(block);
+            });
+        }
+
+        // Initial theme setting based on system preference
+        function applyInitialTheme() {
+            const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(darkMode ? 'dark' : 'light');
+        }
+
+        // Listen for system changes and re-apply theme
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            applyInitialTheme();
+        });
+
+        // Apply the theme on initial load
+        applyInitialTheme();
+    </script>
+</body>
+</html>

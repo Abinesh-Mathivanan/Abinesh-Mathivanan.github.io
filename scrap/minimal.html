@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Text Animation</title>
+    <style>
+        .text-animation {
+            font-family: 'Courier New', Courier, monospace;
+            display: inline-block;
+            transition: color 0.2s, background-color 0.2s, opacity 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="decode-text">
+        <div class="line">Hello, World!</div>
+        <div class="line">Random Text Effect</div>
+        <div class="line">Enjoy the Animation!</div>
+    </div>
+
+    <script>
+        function decodeText() {
+    var textElement = document.getElementById('decode-text');
+    var lines = textElement.querySelectorAll('.line');
+    textElement.innerHTML = '';
+
+    lines.forEach(function(line) {
+        var lineContent = line.textContent.trim();
+        var lineWrapper = document.createElement('div');
+        lineWrapper.className = line.className;
+
+        for (var i = 0; i < lineContent.length; i++) {
+            var span = document.createElement('span');
+            span.textContent = lineContent[i];
+            span.dataset.original = lineContent[i];
+            span.className = 'text-animation';
+            lineWrapper.appendChild(span);
+        }
+        textElement.appendChild(lineWrapper);
+    });
+
+    var children = textElement.querySelectorAll('.text-animation');
+    randomizeAndSettleText(children, 2000); // Process for 1 second
+}
+
+function randomizeAndSettleText(elements, duration) {
+    var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+    var startTime = Date.now();
+
+    var interval = setInterval(function() {
+        var elapsedTime = Date.now() - startTime;
+        var progress = elapsedTime / duration;
+
+        elements.forEach(function(element) {
+            if (Math.random() < progress) {
+                element.textContent = element.dataset.original;
+            } else {
+                var randomChar = charset[Math.floor(Math.random() * charset.length)];
+                element.textContent = randomChar;
+            }
+        });
+
+        if (progress >= 1) {
+            clearInterval(interval);
+        }
+    }, 100); // Update every 50ms
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    decodeText();
+});
+
+
+    </script>
+</body>
+</html>
