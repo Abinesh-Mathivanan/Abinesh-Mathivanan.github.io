@@ -695,6 +695,8 @@ body.dark-mode a {
     padding: 15px;
     border-radius: 8px;
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
 }
 .blog-tabs {
     display: flex;
