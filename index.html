@@ -52,6 +52,19 @@
                 You could find me implementing tech in impressive ways such as the Cosmo Classifier or in-love.js.
             </p>
             
+            <div class="recent-blogs">
+                <div class="blog-tabs">
+                    <div class="blog-tab" onclick="displayBlog('/blogs/typical-cs.md')">
+                        <img src="images/pixel-ques.png" alt="Blog thumbnail">
+                        <span style="font-family: Arial, Helvetica, sans-serif;">Typical CS Student</span>
+                    </div>
+                    <div class="blog-tab" onclick="displayBlog('/blogs/beens-blog.md')">
+                        <img src="images/pix-cat.png" alt="Blog thumbnail">
+                        <span style="font-family: Arial, Helvetica, sans-serif;">Intro Blog</span>
+                    </div>
+                </div>
+            </div>
+
             <p style="font-family: Arial, sans-serif;">
                 Download my resume <a href="assets/abinesh_resume.pdf" target="_blank" style="font-weight: bold; text-decoration: none;">here</a>,
                 and read my blog <strong onclick="showBlogList()" style="font-weight: bold; text-decoration: none;"> here. </strong>
@@ -355,7 +368,8 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', app
         });
 
         const blogs = [
-            { id: 'beens-blog', title: 'Intro Blog', file: '/blogs/beens-blog.md', image: 'images/pix-cat.png', excerpt: 'Nothing...' }
+            { id: 'beens-blog', title: 'Intro Blog', file: '/blogs/beens-blog.md', image: 'images/pix-cat.png', excerpt: 'Nothing...' },
+            { id: 'typical-cs', title: 'Typical CS Student', file: '/blogs/typical-cs.md', image: 'images/pixel-ques.png', excerpt: 'just read it' }
         ];
     </script>
 </body>
