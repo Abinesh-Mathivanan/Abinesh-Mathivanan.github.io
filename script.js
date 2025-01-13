@@ -94,10 +94,19 @@ const showBlogList = () => {
 };
 
 function displayBlog(filePath) {
-    // Extract the blog name from the file path
-    const blogName = path.basename(filePath, '.md');
-    // Navigate to the dynamic route for the blog post
-    window.location.href = `/blog/${blogName}`;
+    showSection('single-blog');
+    fetch(filePath)
+        .then(response => {
+            if (!response.ok) throw new Error(`Failed to load: ${response.statusText}`);
+            return response.text();
+        })
+        .then(data => {
+            renderBlogContent(data);
+        })
+        .catch(error => {
+            console.error('Error loading blog:', error);
+            alert('Error loading blog: ' + error.message);
+        });
 }
 
 function renderBlogContent(data) {
