@@ -253,6 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const blogs = [
-    { id: 'beens-blog', title: 'Intro Blog', file: '/blogs/beens-blog.md', image: 'images/pix-cat.png', excerpt: 'Nothing...' },
-    { id: 'typical-cs', title: 'Typical CS Student', file: '/blogs/typical-cs.md', image: 'images/pixel-ques.png', excerpt: 'just read it' }
+    { id: 'kimi', title: 'Kimi', file: '/blogs/kimi.md', image: 'images/kimi.png', excerpt: 'simple breakdown of Kimi 1.5B Model' },
+    { id: 'typical-cs', title: 'Typical CS Student', file: '/blogs/typical-cs.md', image: 'images/pixel-ques.png', excerpt: 'just read it' },
+    { id: 'beens-blog', title: 'Intro Blog', file: '/blogs/beens-blog.md', image: 'images/pix-cat.png', excerpt: 'Nothing...' }
 ];
