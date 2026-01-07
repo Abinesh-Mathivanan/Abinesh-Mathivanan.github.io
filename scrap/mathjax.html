@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaTeX Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <p>Inline Math: $a^2 + b^2 = c^2$</p>
+    <p>Display Math:</p>
+    <p>$$ \max_\theta \mathbb{E}{(x, y^*) \sim D, (y, z) \sim \pi_\theta} \left[ r(x, y, y^*) \right] $$</p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false,
+                errorCallback: (msg) => {
+                    console.error("KaTeX error:", msg);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

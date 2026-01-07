@@ -1,0 +1,30 @@
+[
+    {
+        "company": "Artizence",
+        "role": "Machine Learning Intern",
+        "duration": "Apr 2023 – Sep 2023",
+        "description": [
+            "Implemented CV models (Haar Cascade, YOLO v5/v7) for real-time surveillance.",
+            "Completed text detection projects using hybrid SVM + HMM; improved accuracy by 20%."
+        ]
+    },
+    {
+        "company": "Neurala Vox AI",
+        "role": "Deep Learning Intern",
+        "duration": "May 2022 – Nov 2022",
+        "description": [
+            "Designed deep learning models for emotional understanding in robots.",
+            "Used PyTorch and Keras; scaled models from 200k parameters based on needs."
+        ]
+    },
+    {
+        "company": "Helix Space Organization",
+        "role": "Software Engineering Intern",
+        "duration": "Nov 2021 – Apr 2022",
+        "description": [
+            "Simulated 3D models of cube-sat; programmed propulsion system in C++.",
+            "Developed analytical systems in Julia; created simulation graphs with Python.",
+            "Utilized PyTorch, Keras, and ReACT-generated dataset (70k samples, 600k parameters)."
+        ]
+    }
+]

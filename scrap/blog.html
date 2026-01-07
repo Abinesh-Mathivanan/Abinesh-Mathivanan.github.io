@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced LaTeX Blog System</title>
+    
+    <!-- KaTeX Resources -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/mhchem.min.js"></script>
+    
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .code-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background: #0056b3;
+        }
+        pre {
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="single-blog-output"></div>
+    </div>
+
+    <script>
+        // Configure marked.js
+        marked.setOptions({
+            breaks: true,
+            smartypants: true,
+            langPrefix: 'hljs language-',
+            highlight: function(code, lang) {
+                const validLang = hljs.getLanguage(lang) ? lang : 'plaintext';
+                return hljs.highlight(code, { language: validLang }).value;
+            }
+        });
+
+        // Blog Content Renderer
+        function renderBlogContent(markdownContent) {
+            const blogContainer = document.createElement('div');
+            
+            try {
+                // First, protect the LaTeX delimiters from markdown parsing
+                const protectedContent = markdownContent.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
+                    return match.replace(/[_*]/g, '\\$&');
+                });
+                
+                blogContainer.innerHTML = marked.parse(protectedContent);
+                
+                // Now render the math
+                renderMathInElement(blogContainer, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false },
+                        { left: '\\[', right: '\\]', display: true }
+                    ],
+                    throwOnError: false,
+                    trust: true,
+                    strict: false,
+                    macros: {
+                        "\\prob": "\\operatorname{P}",
+                        "\\RR": "\\mathbb{R}",
+                        "\\CC": "\\mathbb{C}",
+                        "\\NN": "\\mathbb{N}",
+                        "\\ZZ": "\\mathbb{Z}",
+                        "\\QQ": "\\mathbb{Q}",
+                        "\\pd": ["\\frac{\\partial}{\\partial #1}", 1],
+                        "\\d": "\\mathrm{d}",
+                        "\\e": "\\mathrm{e}",
+                        "\\i": "\\mathrm{i}"
+                    }
+                });
+            } catch (e) {
+                console.error('Error:', e);
+                blogContainer.innerHTML = `<div class="error">Error: ${e.message}</div>`;
+                return;
+            }
+
+            // Apply syntax highlighting and copy buttons
+            blogContainer.querySelectorAll('pre code').forEach((block) => {
+                const container = document.createElement('div');
+                container.className = 'code-container';
+                
+                const copyButton = document.createElement('button');
+                copyButton.className = 'copy-button';
+                copyButton.textContent = 'Copy';
+                
+                copyButton.onclick = () => {
+                    navigator.clipboard.writeText(block.textContent)
+                        .then(() => {
+                            copyButton.textContent = 'Copied!';
+                            setTimeout(() => copyButton.textContent = 'Copy', 2000);
+                        });
+                };
+
+                container.appendChild(copyButton);
+                container.appendChild(block.cloneNode(true));
+                block.parentNode.replaceChild(container, block);
+            });
+
+            document.getElementById('single-blog-output').appendChild(blogContainer);
+        }
+
+        const sampleContent = `
+# Math Demonstration
+
+## Quantum Mechanics
+$$i\\hbar\\frac{\\partial}{\\partial t}\\Psi = \\hat{H}\\Psi$$
+
+## Chemistry
+$\\ce{CO2 + C -> 2CO}$
+
+## Probability
+$$\\prob(X \\in A) = \\int_A f(x)\\, \\d x$$
+
+## Matrix Example
+$$\\begin{matrix}
+1 & \\frac{\\partial f}{\\partial x} \\\\
+\\pd{y} & 0
+\\end{matrix}$$
+
+\`\`\`python
+# Code example
+def hello():
+    print("LaTeX + Code!")
+\`\`\`
+`;
+
+        // Wait for all resources to load before rendering
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                renderBlogContent(sampleContent);
+                hljs.highlightAll();
+            }, 100);
+        });
+    </script>
+</body>
+</html>

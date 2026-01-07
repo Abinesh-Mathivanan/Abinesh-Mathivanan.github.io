@@ -1,0 +1,726 @@
+nav .theme {
+    margin-top: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+@font-face {
+    font-family: 'CS Caleb Mono';
+    src: url('fonts/CsCalebMonoRegularDemo-R9X7A.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px 5%;
+    background-color: transparent;
+    color: #1d1d1f;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    gap: 15px; 
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 0; 
+    margin-bottom: 15px;
+    box-shadow: none;
+}
+
+nav button {
+    background-color: transparent;
+    color: #133E87;
+    border: 1px solid #133E87;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+nav button:hover {
+    background-color: rgba(19, 62, 135, 0.1);
+    color: #0F2D63;
+    transform: scale(1.05);
+}
+
+#content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#content > div {
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+h1, h2 {
+    margin: 0 0 12px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+p {
+    margin: 0 0 15px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+#blog-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#blog-list ul li {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#blog-list ul li:hover {
+    background-color: rgba(224, 224, 224, 0.3);
+}
+
+#single-blog-output {
+    margin-top: 15px;
+}
+
+#single-blog button {
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+}
+
+button.btn-primary {
+    background-color: transparent;
+    color: #133E87;
+    border: 1px solid #133E87;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+button.btn-primary:hover {
+    background-color: rgba(19, 62, 135, 0.1);
+    color: #0F2D63;
+    transform: scale(1.05);
+}
+
+.text-animation {
+    font-family: 'CS Caleb Mono', monospace;
+    display: inline-block;
+    transition: color 0.2s, background-color 0.2s, opacity 0.2s;
+    width: 1.2ch;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.state-1 {
+    color: transparent;
+    background-color: black;
+    opacity: 0.3;
+}
+
+.state-2 {
+    color: transparent;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.state-3 {
+    color: black;
+    background-color: transparent;
+    opacity: 1;
+}
+
+.katex-html {
+    display: none !important;
+}
+
+.katex-mathml {
+    display: inline !important;
+}
+
+.text-animation.space {
+    width: 0.5ch;
+    display: inline-block;
+}
+
+#decode-text {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.icon {
+    width: 23px;
+    height: 23px;
+    fill: #333; 
+    margin-top: 15%;
+    margin-right: 12px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.experience-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    flex: 1 1 calc(33% - 1em);
+}
+
+.card h3 {
+    margin: 0.5em 0;
+}
+
+strong {
+    color: #133E87;
+}
+
+.project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    font-family: Arial, sans-serif;
+}
+
+body.light-mode {
+    background-color: #ffffff;
+    color: #1d1d1f;
+}
+
+.light-mode nav button {
+    background-color: transparent;
+    color: #133E87;
+    border: 1px solid #133E87;
+}
+
+.light-mode .card {
+    background-color: #f9f9f9;
+}
+
+.light-mode strong {
+    color: #133E87;
+}
+
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.dark-mode nav button {
+    background-color: transparent;
+    color: #B9E5E8;
+    border: 1px solid #B9E5E8;
+}
+
+.dark-mode .card {
+    background-color: #333333;
+    border-color: #555555;
+}
+
+.dark-mode strong {
+    color: #B9E5E8;
+}
+
+.dark-mode a {
+    color: #B9E5E8;
+}
+
+.icon {
+    width: 23px;
+    height: 23px;
+    fill: black;
+    margin-right: 12px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+body.dark-mode .icon {
+    fill: #B9E5E8;
+}
+
+.blog-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .blog-item {
+    background-color: #333;
+    border-color: #555;
+}
+
+.blog-item:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .blog-item:hover {
+    background-color: #444;
+}
+
+.blog-thumbnail {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.blog-content {
+    flex: 1;
+}
+
+.blog-title {
+    font-size: 18px;
+    margin-top: 2%;
+    color: #133E87;
+}
+
+body.dark-mode .blog-title {
+    color: #B9E5E8;
+}
+
+.blog-excerpt {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #555;
+}
+
+body.dark-mode .blog-excerpt {
+    color: #ccc;
+}
+
+.theme {
+    position: absolute;
+    right: 20%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.theme .input {
+    display: none;
+}
+
+.theme .icon {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.icon-sun {
+    display: block;
+}
+
+.icon-moon {
+    display: none;
+}
+
+body.dark-mode .icon-sun {
+    display: none;
+}
+
+body.dark-mode .icon-moon {
+    display: block;
+}
+
+.code-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #282c34;
+    margin: 1rem 0;
+}
+
+.code-container pre {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0;
+    font-size: 1rem;
+    background-color: #282c34;
+    color: #e5e5e5;
+}
+
+.copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#blog-list, #single-blog-output {
+    font-family: Arial, sans-serif;
+}
+
+#blog-list h2, 
+#single-blog-output h2, 
+#single-blog-output h3, 
+#single-blog-output h4 {
+    margin-top: 20px !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+    font-family: Arial, sans-serif !important;
+}
+
+#single-blog button {
+    color: #133E87;
+    border: 1px solid #133E87;
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode #single-blog button {
+    color: #B9E5E8;
+    border: 2px solid #B9E5E8;
+}
+
+@media (max-width: 1024px) {
+    body {
+        padding: 20px 3%;
+    }
+
+    nav {
+        gap: 10px;
+        justify-content: flex-start;
+    }
+
+    nav button {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .theme {
+        right: 15px;
+    }
+
+    #decode-text .text-animation {
+        font-size: 1.8em;
+    }
+
+    #content {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+
+    h1, h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    #blog-list ul li {
+        padding: 8px 12px;
+    }
+
+    .experience-cards, .project-cards {
+        flex-direction: column;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .blog-thumbnail {
+        width: 100px;
+        height: 100px;
+    }
+
+    .blog-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px 2%;
+        font-size: 14px;
+    }
+
+    nav {
+        gap: 8px;
+        justify-content: flex-start;
+    }
+
+    nav button {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+
+    .theme {
+        right: 10px;
+    }
+
+    #decode-text {
+        padding: 0 10px;
+        text-align: left;
+    }
+
+    #decode-text .text-animation {
+        font-size: 1.6em;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .experience-cards, .project-cards {
+        gap: 15px;
+    }
+
+    #blog-list ul li {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .blog-thumbnail {
+        width: 90px;
+        height: 90px;
+    }
+
+    .blog-title {
+        font-size: 15px;
+    }
+
+    button.btn-primary {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+
+    .text-animation {
+        font-size: 1.5em;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    #single-blog button {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+
+    .copy-button {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px 5px;
+        font-size: 13px;
+    }
+
+    nav {
+        gap: 5px;
+        justify-content: flex-start;
+    }
+
+    nav button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .theme {
+        right: 10px;
+    }
+
+    #decode-text {
+        padding: 0 5px;
+        text-align: center;
+    }
+
+    #decode-text .text-animation {
+        font-size: 0.9em;
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .experience-cards, .project-cards {
+        gap: 10px;
+    }
+
+    #blog-list ul li {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .blog-thumbnail {
+        width: 80px;
+        height: 80px;
+    }
+
+    .blog-title {
+        font-size: 14px;
+    }
+
+    button.btn-primary {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .text-animation {
+        font-size: 1.2em;
+    }
+
+    .icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    #single-blog button {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+
+    .copy-button {
+        font-size: 0.6rem;
+        padding: 2px 5px;
+    }
+
+    .social-icons {
+        gap: 8px;
+    }
+
+    .card {
+        padding: 0.8em;
+    }
+
+    .blog-excerpt {
+        font-size: 12px;
+    }
+}
+
+a {
+    color: #133E87; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+body.dark-mode a {
+    color: #B9E5E8; 
+    text-decoration: none;
+}
+
+/* Blog list span left */ 
+
+.recent-blogs {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+.blog-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+}
+.blog-tab {
+    cursor: pointer;
+    min-width: 150px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.blog-tab:hover {
+    transform: translateY(-5px);
+}
+.blog-tab img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.blog-tab span {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9em;
+}
